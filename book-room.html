@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Room</title>
+  <link rel="stylesheet" href="css/book-room.css">
+  <!-- In <head> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+<body>
+  <h1>Book Your Room</h1>
+  <div id="booking-info">
+    <img id="room-image" alt="Room Image" />
+    <h2 id="room-name">Room</h2>
+    <p id="price-per-night">Price: ₹...</p>
+  </div>
+
+  <form id="booking-form">
+    <label>
+      Name:
+      <input type="text" id="user-name" disabled>
+    </label>
+    <label>
+      Email:
+      <input type="email" id="user-email" disabled>
+    </label>
+    <label>
+      Check-in Date:
+      <input type="date" id="checkin" required>
+    </label>
+    <label>
+      Check-out Date:
+      <input type="date" id="checkout" required>
+    </label>
+    <p id="total-details"></p>
+    <button type="submit">Confirm Booking</button>
+  </form>
+
+  <script type="module" src="js/book-room.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</html>

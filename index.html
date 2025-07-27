@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umpohliew Guesthouse</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/rooms.css">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Umpohliew Guesthouse</h1>
+    <nav>
+      <a href="signup.html">Sign Up</a>
+      <a href="signin.html">Sign In</a>
+      <a href="rooms.html">Rooms</a>
+      <a href="gallery.html">🖼️</a>
+      <a href="reviews.html">⭐</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Enjoy Your Stay in Nature's Lap</h2>
+      <p>Affordable rooms, scenic views, and warm hospitality.</p>
+    </section>
+
+  </main>
+
+    <main>
+    <div id="room-list" class="room-grid">
+      <!-- Room cards will be populated here by JS -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Umpohliew Guesthouse</p>
+  </footer>
+
+  <script src="firebase/firebase-config.js"></script>
+  <script src="js/index.js"></script>
+  <script type="module" src="js/rooms.js"></script>
+</body>
+</html>

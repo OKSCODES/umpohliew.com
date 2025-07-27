@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Multiple Rooms - Umpohliew Guesthouse</title>
+  <link rel="stylesheet" href="css/book-multiple-rooms.css" />
+</head>
+<body>
+  <header>
+    <h2>Book Selected Rooms</h2>
+  </header>
+
+  <main>
+    <!-- Room List -->
+    <div id="selected-room-list"></div>
+
+    <!-- Booking Form -->
+    <form id="multiple-booking-form">
+      <label for="check-in-date">Check-in Date:</label>
+      <input type="date" id="check-in-date" name="checkInDate" required />
+
+      <label for="check-out-date">Check-out Date:</label>
+      <input type="date" id="check-out-date" name="checkOutDate" required />
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+
+    <!-- Total Price -->
+    <div id="total-price">Total: ₹0</div>
+  </main>
+
+  <script type="module" src="js/book-multiple-rooms.js"></script>
+</body>
+</html>

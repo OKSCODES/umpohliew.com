@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manager - Bookings | Umpohliew Guesthouse</title>
+  <link rel="stylesheet" href="css/manager-bookings.css" />
+</head>
+<body>
+  <header>
+    <h2>Manager Dashboard</h2>
+    <button id="logout-btn">Logout</button>
+  </header>
+
+  <main>
+    <section class="user-info">
+      <p><strong>Manager:</strong> <span id="user-name">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+    </section>
+
+    <section class="bookings">
+      <h3>Your Bookings</h3>
+      <div id="bookings-container">Loading bookings...</div>
+    </section>
+  </main>
+
+  <script type="module" src="js/logout.js"></script>
+  <script type="module" src="js/manager-bookings.js"></script>
+</body>
+</html>

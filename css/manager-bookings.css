@@ -1,0 +1,8 @@
+.booking-card img {
+  width: 100%;
+  max-width: 300px; /* Adjust to preferred max size */
+  height: auto;
+  display: block;
+  margin: 10px 0;
+  border-radius: 8px;
+}

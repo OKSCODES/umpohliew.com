@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - All Bookings | Umpohliew Guesthouse</title>
+  <link rel="stylesheet" href="css/admin-bookings.css" />
+</head>
+<body>
+  <header>
+    <h2>Admin Dashboard</h2>
+    <h2><a href="rooms-admin.html">Rooms</a></h2>
+    <button id="logout-btn">Logout</button>
+  </header>
+
+  <main>
+    <section class="user-info">
+      <p><strong>Admin:</strong> <span id="user-name">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+    </section>
+
+    <section class="bookings-section">
+      <h3>All Guest Bookings</h3>
+      <div id="bookings-container">Loading bookings...</div>
+    </section>
+  </main>
+
+  <script type="module" src="js/logout.js"></script>
+  <script type="module" src="js/admin-bookings.js"></script>
+</body>
+</html>

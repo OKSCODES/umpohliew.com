@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f1f1;
+}
+
+.signin-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 8px;
+}
+
+.signin-container input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.signin-container button {
+  width: 100%;
+  padding: 10px;
+  background: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,39 @@
+body {
+  font-family: Arial;
+  padding: 2rem;
+  background: #f9f9f9;
+}
+
+#booking-info {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#room-image {
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  gap: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.8rem;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}

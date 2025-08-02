@@ -1,95 +1,138 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset & Basic Styling */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Header layout using Flexbox */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0fdf4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Header and Navigation */
 header {
-  background-color: yellow;
-  color: green;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* allow wrapping on small screens */
-}
-
-/* Heading */
-header h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-/* Navigation links in a row */
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px; /* space between links */
-  flex-wrap: nowrap; /* prevent wrapping */
-  margin-top: 10px;
-}
-
-nav a {
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  white-space: nowrap; /* prevents breaking */
-  glyph-orientation-horizontal: 0deg;
-  padding: 8px 12px;
-}
-
-/* Hero section */
-.hero {
-  background: url('../images/hero.jpg') center/cover no-repeat;
-  padding: 100px 20px;
+  background-color:#FFD700;
   color: white;
-  text-align: center;
-  background-color: #A2B1C6;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Rooms preview section */
-.rooms-preview {
-  padding: 40px 20px;
+header h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#main-nav {
   display: flex;
-  gap: 20px;
   justify-content: center;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
-/* Individual room card */
-.room-card {
-  border: 1px solid #ccc;
-  padding: 20px;
-  text-align: center;
-  width: 300px;
+#main-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Room image */
+#main-nav a:hover {
+  color: #c8e6c9;
+  transform: scale(1.1);
+}
+
+#main-nav a span {
+  margin-top: 5px;
+}
+
+Hero Section */
+  .hero {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+} 
+
+/* Room Preview Section */
+.room-preview {
+  padding: 40px 20px;
+  background-color: #e8f5e9;
+  text-align: center;
+}
+
+.room-preview h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.room-card {
+  background-color: white;
+  border: 1px solid #c8e6c9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.room-card:hover {
+  transform: scale(1.03);
+}
+
 .room-card img {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
 }
- 
-/* Responsive behavior */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 
-  nav {
-    justify-content: center;
-    flex-wrap: wrap; /* allow gentle wrapping if needed on small screens */
-    gap: 10px;
-  }
-
-  .rooms-preview {
-    flex-direction: column;
-    align-items: center;
-  }
+.room-card .content {
+  padding: 15px;
+  text-align: left;
 }
 
+.room-card .content h4 {
+  margin-bottom: 5px;
+  color: #2e7d32;
+}
+
+.room-card .content p {
+  font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}

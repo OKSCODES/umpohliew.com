@@ -6,31 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Umpohliew Guesthouse</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/rooms.css">
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
 </head>
 <body>
   <header>
-    <h1>Welcome to Umpohliew Guesthouse</h1>
-    <nav>
-      <a href="signup.html">Sign Up</a>
-      <a href="signin.html">Sign In</a>
-      <a href="rooms.html">Rooms</a>
-      <a href="gallery.html">🖼️</a>
-      <a href="reviews.html">⭐</a>
+    <div class="top-bar">
+      <h1><i class="fa-solid fa-house"></i>Umpohliew Guesthouse</h1>
+    </div>
+    <nav id="main-nav">
+      <a href="rooms.html">🛏️<br>Rooms</a>
+      <a href="gallery.html">🖼️<br>Gallery</a>
+      <a href="reviews.html">⭐<br></a>
     </nav>
   </header>
 
-  <main>
+    <main>
     <section class="hero">
-      <h2>Enjoy Your Stay in Nature's Lap</h2>
-      <p>Affordable rooms, scenic views, and warm hospitality.</p>
+      <div class="slider">
+        <img id="hero-image" src="images/ump_building.jpg" alt="Scenic view of Umpohliew Guesthouse">
+      </div>
     </section>
-
-  </main>
+    </main>
 
     <main>
     <div id="room-list" class="room-grid">

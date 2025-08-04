@@ -149,6 +149,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkIn = checkinInput.value;
     const checkOut = checkoutInput.value;
 
+      // Validate both dates are selected
+      if (!checkIn || !checkOut) {
+        alert("Please select both check-in and check-out dates.");
+        return; // exit early, don't submit
+      }
+
     const { nights, total } = calculateNightsAndTotal(checkIn, checkOut);
 
     if (nights <= 0) {

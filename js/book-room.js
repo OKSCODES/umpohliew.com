@@ -19,18 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const roomId = urlParams.get("roomId");
   const pricePerNight = parseInt(urlParams.get("price"));
 
-  const roomImageMap = {
-    "Room 101": "images/bed1.avif",
-    "Room 102": "images/bed2.avif",
-    "Room 103": "images/bed3.avif",
-    "Room 104": "images/bed4.avif",
-    "Room 105": "images/bed5.avif",
-    "Room 106": "images/bed6.avif",
-    "Room 107": "images/bed7.avif",
-    "Room 108": "images/bed8.avif",
-    "Room 109": "images/bed9.avif",
-    "Room 110": "images/bed10.avif",
-  };
+  // ✅ Function to get room image dynamically
+  function getRoomImage(roomId) {
+    const roomNumber = roomId.replace(/\D/g, ""); // Extract digits
+    const roomImageMap = {
+      "101": "images/bed1.avif",
+      "102": "images/bed2.avif",
+      "103": "images/bed3.avif",
+      "104": "images/bed4.avif",
+      "105": "images/bed5.avif",
+      "106": "images/bed6.avif",
+      "107": "images/bed7.avif",
+      "108": "images/bed8.avif",
+      "109": "images/bed9.avif",
+      "110": "images/bed10.avif",
+    };
+    return roomImageMap[roomNumber] || "images/default-room.jpg";
+  }
 
   // Elements
   const roomImage = document.getElementById("room-image");
@@ -46,49 +51,45 @@ document.addEventListener("DOMContentLoaded", () => {
   // Display room info
   roomName.textContent = roomId;
   priceText.textContent = `Price: ₹${pricePerNight}/night`;
-  roomImage.src = roomImageMap[roomId] || "images/default-room.jpg";
+  roomImage.src = getRoomImage(roomId); // ✅ Updated line
 
   let currentUser = null;
 
-
-
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-
       // Disable already booked dates using flatpickr
       async function disableBookedDates(roomId) {
-      const bookingsRef = collection(db, "bookings");
-      const bookingsQuery = query(bookingsRef, where("roomId", "==", roomId));
-      const snapshot = await getDocs(bookingsQuery);
+        const bookingsRef = collection(db, "bookings");
+        const bookingsQuery = query(bookingsRef, where("roomId", "==", roomId));
+        const snapshot = await getDocs(bookingsQuery);
 
-      const disabledDates = [];
+        const disabledDates = [];
 
-      snapshot.forEach(docSnap => {
-        const booking = docSnap.data();
-        const start = new Date(booking.checkInDate);
-        const end = new Date(booking.checkOutDate);
-        
-        // Push range of dates to be disabled
-        disabledDates.push({ from: start, to: end });
-      });
+        snapshot.forEach(docSnap => {
+          const booking = docSnap.data();
+          const start = new Date(booking.checkInDate);
+          const end = new Date(booking.checkOutDate);
+          
+          // Push range of dates to be disabled
+          disabledDates.push({ from: start, to: end });
+        });
 
-      flatpickr("#checkin", {
-        minDate: "today",
-        disable: disabledDates,
-        onChange: function(selectedDates, dateStr, instance) {
-          checkoutInput._flatpickr.set("minDate", dateStr);
-        }
-      });
+        flatpickr("#checkin", {
+          minDate: "today",
+          disable: disabledDates,
+          onChange: function(selectedDates, dateStr, instance) {
+            checkoutInput._flatpickr.set("minDate", dateStr);
+          }
+        });
 
-      flatpickr("#checkout", {
-        minDate: "today",
-        disable: disabledDates
-      });
-    }
+        flatpickr("#checkout", {
+          minDate: "today",
+          disable: disabledDates
+        });
+      }
 
-    // Call this after DOM is loaded and roomId is available
-    disableBookedDates(roomId);
-
+      // Call this after DOM is loaded and roomId is available
+      disableBookedDates(roomId);
 
       currentUser = user;
       userEmailInput.value = user.email;
@@ -109,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "signin.html";
     }
   });
-
 
   function calculateNightsAndTotal(checkIn, checkOut) {
     const checkInDate = new Date(checkIn);
@@ -149,11 +149,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkIn = checkinInput.value;
     const checkOut = checkoutInput.value;
 
-      // Validate both dates are selected
-      if (!checkIn || !checkOut) {
-        alert("Please select both check-in and check-out dates.");
-        return; // exit early, don't submit
-      }
+    // Validate both dates are selected
+    if (!checkIn || !checkOut) {
+      alert("Please select both check-in and check-out dates.");
+      return; // exit early, don't submit
+    }
 
     const { nights, total } = calculateNightsAndTotal(checkIn, checkOut);
 
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
       checkOutDate: checkOut,
       totalNights: nights,
       totalPrice: total,
-      roomImage: roomImageMap[roomId] || "images/default-room.jpg",
+      roomImage: getRoomImage(roomId), // ✅ Updated to use the new function
       timestamp: Timestamp.now()
     };
 
@@ -191,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Error saving booking.");
     }
   });
-
 
   // Update total price on date change
   checkinInput.addEventListener("change", updateTotalDisplay);
@@ -211,4 +210,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-  

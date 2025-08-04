@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "umpohliewguesthouse-bd81e",
     "public": ".",
     "ignore": [
       "firebase.json",

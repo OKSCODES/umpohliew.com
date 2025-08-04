@@ -121,6 +121,31 @@ button.book-now {
   }
 }
 
+.slider {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+.slider img.active {
+  opacity: 1;
+  position: relative;
+}
+
+
+
 @media (max-width: 480px) {
   body {
     font-size: 16px;

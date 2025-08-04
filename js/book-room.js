@@ -20,16 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const pricePerNight = parseInt(urlParams.get("price"));
 
   const roomImageMap = {
-    "Room 101": "images/img1.jpg",
-    "Room 102": "images/img2.jpg",
-    "Room 103": "images/img4.jpg",
-    "Room 104": "images/img1.jpg",
-    "Room 105": "images/img2.jpg",
-    "Room 106": "images/img4.jpg",
-    "Room 107": "images/img1.jpg",
-    "Room 108": "images/img2.jpg",
-    "Room 109": "images/img4.jpg",
-    "Room 110": "images/img1.jpg",
+    "Room 101": "images/bed1.avif",
+    "Room 102": "images/bed2.avif",
+    "Room 103": "images/bed3.avif",
+    "Room 104": "images/bed4.avif",
+    "Room 105": "images/bed5.avif",
+    "Room 106": "images/bed6.avif",
+    "Room 107": "images/bed7.avif",
+    "Room 108": "images/bed8.avif",
+    "Room 109": "images/bed9.avif",
+    "Room 110": "images/bed10.avif",
   };
 
   // Elements

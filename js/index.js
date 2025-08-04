@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
   const imageElement = document.getElementById('hero-image');
   const images = [
-    'images/view1.jpg',
+    'images/ump_building.jpg',
     'images/view2.jpg',
     'images/view3.jpg',
     'images/img4.jpg'

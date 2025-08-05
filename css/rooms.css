@@ -1,4 +1,6 @@
-/* Reset & Basic Styling */
+/* =========================
+   Global Reset & Base Styles
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,14 +20,19 @@ body {
   padding: 0 20px;
 }
 
-/* Header and Navigation */
-header {
-  background-color:yellow;
+/* =========================
+   Header / Navbar
+========================= */
+header, .navbar {
+  background-color: yellow;
   color: white;
-  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+header {
+  padding: 1rem 0;
 }
 
 header h1 {
@@ -33,137 +40,7 @@ header h1 {
   margin-bottom: 10px;
 }
 
-#main-nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
-#main-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-#main-nav a:hover {
-  color: #c8e6c9;
-  transform: scale(1.1);
-}
-
-#main-nav a span {
-  margin-top: 5px;
-}
-
-
-.room-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 2rem;
-}
-
-.room-card {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.room-img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-button.book-now {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #388e3c;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Responsive design for mobile devices */
-@media (max-width: 768px) {
-  header {
-    text-align: center;
-  }
-
-  nav {
-    display: flex;
-    flex-direction:row;
-    gap: 10px;
-    margin-top: 1rem;
-  }
-
-  .room-grid {
-    grid-template-columns: 1fr; /* One column on mobile */
-    padding: 1rem;
-  }
-
-  .room-card {
-    padding: 1rem;
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  .room-img {
-    max-height: 200px;
-    object-fit: cover;
-  }
-}
-
-.slider {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-}
-
-.slider img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-}
-
-.slider img.active {
-  opacity: 1;
-  position: relative;
-}
-
-
-
-@media (max-width: 480px) {
-  body {
-    font-size: 16px;
-  }
-
-  header h1 {
-    font-size: 22px;
-  }
-
-  button.book-now {
-    width: 100%;
-    font-size: 16px;
-  }
-}
-
-/* Navigation Bar Styles */
 .navbar {
-  background-color: yellow;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -187,9 +64,9 @@ button.book-now {
 
 .nav-links li a {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .nav-links li a:hover {
@@ -197,17 +74,199 @@ button.book-now {
   color: #ffcc80;
 }
 
-/* Mobile Responsive Nav */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: row;
-    align-items: flex-start;
+/* =========================
+   Room Grid & Cards
+========================= */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 2rem 1rem;
+}
+
+.room-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.room-card h3 {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+.room-card p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   Image Slider
+========================= */
+.slider {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.slider img.active {
+  opacity: 1;
+  position: relative;
+}
+
+.slider button.prev,
+.slider button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color:transparentrgba(255, 255, 255, 0.10);
+  border: none;
+  padding: 8px 12px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius:50%;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.slider button.prev:hover,
+.slider button.next:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.slider button.prev { left: 10px; }
+.slider button.next { right: 10px; }
+
+#zoomModal img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#zoomModal img.show {
+  opacity: 1;
+}
+
+
+/* =========================
+   Booking Button
+========================= */
+button.book-now {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #388e3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button.book-now:hover {
+  background: #2e7d32;
+}
+
+/* =========================
+   Zoom Modal for Images
+========================= */
+#zoomModal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+#zoomModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .room-grid {
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .room-card {
+    padding: 0.8rem;
+  }
+
+  .slider {
+    height: 160px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .room-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slider {
+    height: 140px;
+  }
+
+  button.book-now {
+    width: 100%;
+    font-size: 16px;
   }
 
   .nav-links {
-    flex-direction: row;
     flex-wrap: wrap;
-    gap: 15px;
-    padding-top: 0.5rem;
+    gap: 10px;
   }
 }

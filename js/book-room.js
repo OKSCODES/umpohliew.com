@@ -1,6 +1,5 @@
 // book-room.js
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
 import { auth, db } from "../firebase/firebase-config.js";
 import {
   onAuthStateChanged
@@ -18,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const roomId = urlParams.get("roomId");
   const pricePerNight = parseInt(urlParams.get("price"));
+  const roomCapacity = urlParams.get("capacity"); // ✅ Added
 
   // ✅ Function to get room image dynamically
   function getRoomImage(roomId) {
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const roomImage = document.getElementById("room-image");
   const roomName = document.getElementById("room-name");
   const priceText = document.getElementById("price-per-night");
+  const roomCapacityText = document.getElementById("room-capacity"); // ✅ Added
   const userNameInput = document.getElementById("user-name");
   const userEmailInput = document.getElementById("user-email");
   const checkinInput = document.getElementById("checkin");
@@ -51,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Display room info
   roomName.textContent = roomId;
   priceText.textContent = `Price: ₹${pricePerNight}/night`;
-  roomImage.src = getRoomImage(roomId); // ✅ Updated line
+  roomCapacityText.textContent = `Capacity: ${roomCapacity} persons`; // ✅ Added
+  roomImage.src = getRoomImage(roomId);
 
   let currentUser = null;
 
@@ -174,11 +176,12 @@ document.addEventListener("DOMContentLoaded", () => {
       userName: userNameInput.value || "",
       roomId: roomId,
       pricePerNight: pricePerNight,
+      capacity: roomCapacity, // ✅ Added
       checkInDate: checkIn,
       checkOutDate: checkOut,
       totalNights: nights,
       totalPrice: total,
-      roomImage: getRoomImage(roomId), // ✅ Updated to use the new function
+      roomImage: getRoomImage(roomId),
       timestamp: Timestamp.now()
     };
 

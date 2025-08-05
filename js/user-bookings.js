@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="${data.roomImage || 'images/default-room.jpg'}" alt="Room Image">
         <p><strong>User Email:</strong> ${data.userEmail}</p>
         <p><strong>User Name:</strong> ${data.userName}</p>
+        <p><strong>Room Capacity:</strong> ${data.capacity || 'N/A'} persons</p> <!-- ✅ Added -->
         <p><strong>Check-in:</strong> ${data.checkInDate}</p>
         <p><strong>Check-out:</strong> ${data.checkOutDate}</p>
         <p><strong>Price/Night:</strong> ₹${data.pricePerNight}</p>
